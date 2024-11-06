@@ -41,37 +41,37 @@ let svenska = {
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
 let CarolinEriksson = {
-  name: [],
-  age: [],
-  gender: [],
+  name: ["carolin Eriksson"],
+  age: [38],
+  gender: ["female"],
   subjects: [],
 };
 
 let andreKarlsson = {
-  name: [],
-  age: [],
-  gender: [],
+  name: ["Andre Karlsson"],
+  age: [41],
+  gender: ["Male"],
   subjects: [],
 };
 
 let alexandraSkogsberg = {
-  name: [],
-  age: [],
-  gender: [],
+  name: ["Alexandra Skogsberg"],
+  age: [45],
+  gender: ["female"],
   subjects: [],
 };
 
 let emelieNilsson = {
-  name: [],
-  age: [],
-  gender: [],
+  name: ["Emelie Nilsson"],
+  age: [37],
+  gender: ["female"],
   subjects: [],
 };
 
-let håkanAndresson = {
-  name: [],
-  age: [],
-  gender: [],
+let håkanAndersson = {
+  name: ["Håkan Andersson"],
+  age: [58],
+  gender: ["Male"],
   subjects: [],
 };
 
@@ -80,12 +80,12 @@ let håkanAndresson = {
 // och subjects som en tom array.
 
 let beaNilklint = {
-  name: [],
+  name: ["Bea Nilklint", ],
   subjects: [],
 };
 
 let katarinaSandgren = {
-  name: [],
+  name: ["Katarina Sandgren", ],
   subjects: [],
 };
 
@@ -94,3 +94,47 @@ let katarinaSandgren = {
 // eller unshift() Kommer du ihåg skillnaden på dem två? Skriv sen ut både läraren och 
 // ämnet du valde i konsolen och inspektera dem. Resonera, hur kan man använda den datan 
 // ur ett admins perspektiv på en skola, och tycker du den är komplett? Vad saknas?
+
+beaNilklint.subjects.push(matematik);
+
+console.log("#5. ", beaNilklint.name);
+console.log ("#5. ", beaNilklint.subjects);
+
+// push () lägger till i slutet av en array och unshift lägger till i början av en array.
+// Den kan användas för att få en tydlig bild av vilka lärare som undervisar i vilket ämne.
+
+
+// #6. Lägg till en student i ett ämnes studentarray. Skriv ut och inspektera i konsolen.
+
+svenska.students.push(håkanAndersson);
+
+console.log ("#6. ", svenska.students);
+
+//#7. För att lösa problematiken i de två senaste uppgifterna så bör man i sådana här 
+// fall lägga till kopplingen i båda objekten. Alltså vi börjar med att lägga till ett 
+// ämne i en lärarens ämnesarray, och sen byter vi ut det tomma lärarobjekten i ämnet mot 
+//läraren. 
+//Då har vi en referens på båda sidorna. Egentligen är detta något som kallas för en cirkulär 
+// referens vilket vi helst vill undvika när vi programmerar, då kan orsaka krashar i vissa 
+// fall, men i syftet för uppgiften så är det ingen fara. Skapa nu en funktion som heter 
+// addSubjectToTeacher som tar emot ett ämne och en lärare, och parar ihop dessa. 
+// Returnera sen läraren så du kan se förändringen i lärarens ämnesarray.
+
+beaNilklint.subjects.push(engelska);
+
+function addSubjectToTeacher (subject, teacher) {
+  
+}
+
+//addSubjectToTeacher(engelska, katarinaSandgren);
+
+console.log("#7. Lärare ", beaNilklint.subjects);
+console.log ("#7. Ämne ", engelska);
+
+
+
+// #8. Varför ha en fristående funktion som lägger till ämne till en lärare? 
+// Varför inte bara lägga till en funktion (alltså en metod eftersom funktionen 
+  // då är kopplad till ett specifikt objekt) i lärarnas objekt som en egenskap? 
+  // Till exempel:
+
