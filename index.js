@@ -3,7 +3,7 @@
 // egenskaperna: name, address, zipcode, city, students med värdet av en tom array och 
 // teachers som en tom array. Till exempel:
 
-let medieinstitutet = {
+const medieinstitutet = {
     name: "medieinstitutet",
     address: "Topasvägen 40",
     zipcode: 24634,
@@ -17,19 +17,19 @@ let medieinstitutet = {
 //   motsvarande namnet på ämnet. Egenskaperna ska vara name, students som en tom array 
 //   och teacher som ett tomt objekt. Till Exempel:
 
-let engelska = {
+const engelska = {
     name: "Engelska",
     students: [],
     teachers: {},
 };
 
-let matematik = {
+const matematik = {
   name: "Matematik",
     students: [],
     teachers: {},
 };
 
-let svenska = {
+const svenska = {
 
   name: "Svenska",
   students: [],
@@ -40,35 +40,35 @@ let svenska = {
 // #3. Skapa fem stycken studenter, där namnet på studenten motsvara variabeln. 
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
-let CarolinEriksson = {
+const CarolinEriksson = {
   name: "carolin Eriksson",
   age: 38,
   gender: "female",
   subjects: [],
 };
 
-let andreKarlsson = {
+const andreKarlsson = {
   name: "Andre Karlsson",
   age: 41,
   gender: "Male",
   subjects: [],
 };
 
-let alexandraSkogsberg = {
+const alexandraSkogsberg = {
   name: "Alexandra Skogsberg",
   age: 45,
   gender: "female",
   subjects: [],
 };
 
-let emelieNilsson = {
+const emelieNilsson = {
   name: "Emelie Nilsson",
   age: 37,
   gender: "female",
   subjects: [],
 };
 
-let håkanAndersson = {
+const håkanAndersson = {
   name: "Håkan Andersson",
   age: 58,
   gender: "Male",
@@ -79,12 +79,12 @@ let håkanAndersson = {
 // #4. Skapa två stycken lärare med namnet som variabel och egenskaperna name 
 // och subjects som en tom array.
 
-let beaNilklint = {
+const beaNilklint = {
   name: "Bea Nilklint",
   subjects: [],
 };
 
-let katarinaSandgren = {
+const katarinaSandgren = {
   name: "Katarina Sandgren",
   subjects: [],
 };
@@ -93,7 +93,7 @@ let katarinaSandgren = {
 // #5. Skriv en kodrad där du lägger till ett ämne i en lärares ämnesarray. push() 
 // eller unshift() Kommer du ihåg skillnaden på dem två? Skriv sen ut både läraren och 
 // ämnet du valde i konsolen och inspektera dem. Resonera, hur kan man använda den datan 
-// ur ett admins perspektiv på en skola, och tycker du den är komplett? Vad saknas?
+// ur ett admins perspektiv på en skola, och tycker du den är kompconstt? Vad saknas?
 
 beaNilklint.subjects.push(matematik);
 
@@ -146,27 +146,31 @@ console.log ("#6. ", svenska.students);
   // Till exempel:
 
   // Två sätt, antingen går du in i varje lärarobjekt och lägger till en egenskap:
-let niklas = {
+const niklas = {
   name: "niklas",
   subjects: [],
-  addSubject: function (subject) {
-    this.subjects.unshift(subject);
-  },
+  // //addSubject: function (subject) {
+  //   this.subjects.unshift(subject);
+  // },
 };
 
-niklas.addSubject(svenska);
+//niklas.addSubject(svenska);
 
-console.log("#8.", niklas);
+//console.log("#8.", niklas);
 
 // Tänk på att "this" måste användas för att referera till det egna objektets egenskaper.
 
 // Andra sättet är att helt enkelt lägga till en egenskap med hjälp av punktnotation:
 niklas.addSubject = function (subject) {
   
-  (subject);
+  this.subjects.push(subject);
 }
 
 // Då kan vi ju sen kalla på denna metod via lärarobjektet.
-niklas.addSubject(Matematik);
+niklas.addSubject(matematik);
+
+console.log("#8. ",niklas);
 
 // Prova det i konsolen!
+
+// #9. 
