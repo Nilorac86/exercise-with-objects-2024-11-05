@@ -41,37 +41,37 @@ let svenska = {
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
 let CarolinEriksson = {
-  name: ["carolin Eriksson"],
-  age: [38],
-  gender: ["female"],
+  name: "carolin Eriksson",
+  age: 38,
+  gender: "female",
   subjects: [],
 };
 
 let andreKarlsson = {
-  name: ["Andre Karlsson"],
-  age: [41],
-  gender: ["Male"],
+  name: "Andre Karlsson",
+  age: 41,
+  gender: "Male",
   subjects: [],
 };
 
 let alexandraSkogsberg = {
-  name: ["Alexandra Skogsberg"],
-  age: [45],
-  gender: ["female"],
+  name: "Alexandra Skogsberg",
+  age: 45,
+  gender: "female",
   subjects: [],
 };
 
 let emelieNilsson = {
-  name: ["Emelie Nilsson"],
-  age: [37],
-  gender: ["female"],
+  name: "Emelie Nilsson",
+  age: 37,
+  gender: "female",
   subjects: [],
 };
 
 let håkanAndersson = {
-  name: ["Håkan Andersson"],
-  age: [58],
-  gender: ["Male"],
+  name: "Håkan Andersson",
+  age: 58,
+  gender: "Male",
   subjects: [],
 };
 
@@ -80,12 +80,12 @@ let håkanAndersson = {
 // och subjects som en tom array.
 
 let beaNilklint = {
-  name: ["Bea Nilklint", ],
+  name: "Bea Nilklint",
   subjects: [],
 };
 
 let katarinaSandgren = {
-  name: ["Katarina Sandgren", ],
+  name: "Katarina Sandgren",
   subjects: [],
 };
 
@@ -120,21 +120,53 @@ console.log ("#6. ", svenska.students);
 // addSubjectToTeacher som tar emot ett ämne och en lärare, och parar ihop dessa. 
 // Returnera sen läraren så du kan se förändringen i lärarens ämnesarray.
 
-beaNilklint.subjects.push(engelska);
 
-function addSubjectToTeacher (subject, teacher) {
+
+   
+  function addTeacherToSubject(subject, teacher) {
+
+    subject.teachers[teacher.name] = teacher;
   
-}
+    teacher.subjects.push(subject);
+  }
+  
+  addTeacherToSubject(engelska, beaNilklint);
+  addTeacherToSubject(engelska, katarinaSandgren);
+  
+  
+  console.log("#7. Engelska:", engelska.teachers); 
+  console.log("#7. Lärare:", beaNilklint.subjects); 
 
-//addSubjectToTeacher(engelska, katarinaSandgren);
 
-console.log("#7. Lärare ", beaNilklint.subjects);
-console.log ("#7. Ämne ", engelska);
-
-
+   
 
 // #8. Varför ha en fristående funktion som lägger till ämne till en lärare? 
 // Varför inte bara lägga till en funktion (alltså en metod eftersom funktionen 
   // då är kopplad till ett specifikt objekt) i lärarnas objekt som en egenskap? 
   // Till exempel:
 
+  // Två sätt, antingen går du in i varje lärarobjekt och lägger till en egenskap:
+let niklas = {
+  name: "niklas",
+  subjects: [],
+  addSubject: function (subject) {
+    this.subjects.unshift(subject);
+  },
+};
+
+niklas.addSubject(svenska);
+
+console.log("#8.", niklas);
+
+// Tänk på att "this" måste användas för att referera till det egna objektets egenskaper.
+
+// Andra sättet är att helt enkelt lägga till en egenskap med hjälp av punktnotation:
+niklas.addSubject = function (subject) {
+  
+  (subject);
+}
+
+// Då kan vi ju sen kalla på denna metod via lärarobjektet.
+niklas.addSubject(Matematik);
+
+// Prova det i konsolen!
