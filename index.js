@@ -3,14 +3,22 @@
 // egenskaperna: name, address, zipcode, city, students med värdet av en tom array och 
 // teachers som en tom array. Till exempel:
 
-const medieinstitutet = {
-    name: "medieinstitutet",
+const nyvangsskolan = {
+    name: "Nyvångsskolan",
     address: "Topasvägen 40",
     zipcode: 24634,
     city: "Löddeköpinge",
     students: [],
     teachers: [],
+    addTeacher: function(teacher){
 
+      this.teachers.push(teacher);
+    },
+
+    addStudents: function (student){
+
+      this.students.push(student);
+    },
   };
 
 //   #2. Skapa tre stycken olika ämnen, varje ämne ska vara ett objekt med en variabel 
@@ -34,59 +42,82 @@ const svenska = {
   name: "Svenska",
   students: [],
   teachers: {},
+  
 };
 
 
 // #3. Skapa fem stycken studenter, där namnet på studenten motsvara variabeln. 
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
-const CarolinEriksson = {
-  name: "carolin Eriksson",
+const carolin = {
+  name: "carolin",
   age: 38,
   gender: "female",
   subjects: [],
+  enlistToSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
-const andreKarlsson = {
-  name: "Andre Karlsson",
+
+const andre = {
+  name: "Andre",
   age: 41,
   gender: "Male",
   subjects: [],
+  enlistToSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
-const alexandraSkogsberg = {
-  name: "Alexandra Skogsberg",
+const alexandra = {
+  name: "Alexandra",
   age: 45,
   gender: "female",
   subjects: [],
+  enlistToSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
-const emelieNilsson = {
-  name: "Emelie Nilsson",
+const emelie = {
+  name: "Emelie",
   age: 37,
   gender: "female",
   subjects: [],
+  enlistToSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
-const håkanAndersson = {
-  name: "Håkan Andersson",
+const håkan = {
+  name: "Håkan",
   age: 58,
   gender: "Male",
   subjects: [],
+  enlistToSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
 
 // #4. Skapa två stycken lärare med namnet som variabel och egenskaperna name 
 // och subjects som en tom array.
 
-const beaNilklint = {
-  name: "Bea Nilklint",
+const stina = {
+  name: "Stina",
   subjects: [],
+  addSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
-const katarinaSandgren = {
-  name: "Katarina Sandgren",
+const katarina = {
+  name: "Katarina",
   subjects: [],
+  addSubject: function (subject){
+    this.subjects.push(subject);
+  }
 };
 
 
@@ -95,10 +126,10 @@ const katarinaSandgren = {
 // ämnet du valde i konsolen och inspektera dem. Resonera, hur kan man använda den datan 
 // ur ett admins perspektiv på en skola, och tycker du den är kompconstt? Vad saknas?
 
-beaNilklint.subjects.push(matematik);
+stina.subjects.push(matematik);
 
-console.log("#5. ", beaNilklint.name);
-console.log ("#5. ", beaNilklint.subjects);
+console.log("#5. ", stina.name);
+console.log ("#5. ", stina.subjects);
 
 // push () lägger till i slutet av en array och unshift lägger till i början av en array.
 // Den kan användas för att få en tydlig bild av vilka lärare som undervisar i vilket ämne.
@@ -106,7 +137,7 @@ console.log ("#5. ", beaNilklint.subjects);
 
 // #6. Lägg till en student i ett ämnes studentarray. Skriv ut och inspektera i konsolen.
 
-svenska.students.push(håkanAndersson);
+svenska.students.push(håkan);
 
 console.log ("#6. ", svenska.students);
 
@@ -123,20 +154,34 @@ console.log ("#6. ", svenska.students);
 
 
    
-  function addTeacherToSubject(subject, teacher) {
+  // function addTeacherToSubject(subject, teacher) {
 
-    subject.teachers[teacher.name] = teacher;
+  //   subject.teachers[teacher.name] = teacher;
   
+  //   teacher.subjects.push(subject);
+  // }
+  
+  // addTeacherToSubject(engelska, beaNilklint);
+  // addTeacherToSubject(engelska, katarinaSandgren);
+  
+  
+  // console.log("#7. Engelska:", engelska.teachers); 
+  // console.log("#7. Lärare:", beaNilklint.subjects); 
+
+function addSubjectToTeacher (subject, teacher){
+  if (!subject.teachers[teacher.name]){
+      subject.teachers[teacher.name]= teacher;
+
+
+} if (!teacher.subjects.includes(subject)){
     teacher.subjects.push(subject);
-  }
-  
-  addTeacherToSubject(engelska, beaNilklint);
-  addTeacherToSubject(engelska, katarinaSandgren);
-  
-  
-  console.log("#7. Engelska:", engelska.teachers); 
-  console.log("#7. Lärare:", beaNilklint.subjects); 
+}
+}
 
+addSubjectToTeacher (engelska, katarina);
+addSubjectToTeacher (svenska, katarina);
+console.log(katarina);
+console.log(engelska);
 
    
 
@@ -173,4 +218,29 @@ console.log("#8. ",niklas);
 
 // Prova det i konsolen!
 
-// #9. 
+// #9. Skapa följande metoder (Någon eller ett par av metoderna kan förekomma flera 
+// gånger fast på olika objekt med olika logik) och lägg in de i rätt typ av 
+// objekt: addTeacher, enlistToSubject, addStudent, addSubject
+
+
+carolin.enlistToSubject(svenska);
+console.log("#9. ", carolin.subjects);
+
+stina.addSubject(svenska);
+console.log("#9. ", stina);
+
+nyvangsskolan.addStudents(carolin);
+
+nyvangsskolan.addTeacher(stina);
+console.log("#9. ", nyvangsskolan);
+
+
+// #10. Prova att leka runt med alla de skapade metoderna i konsolen och försöka lägga till i 
+// de olika objekten. Skriv ut objekten hela tiden och inspektera dem. Kan du tänka dig 
+// någon likhet med ett riktigt adminprogram för en skola där en admin till exempel skriver
+//  ut en lista på alla ämnen för att se vilka respektive lärare som är ansvariga för 
+//  respektive kurs.
+// 
+// #11. Skapa fler metoder, quitSubject, removeTeacher, relegateStudent, fireTeacher. 
+// I vilka objekt hör dessa metoder hemma? Och om vi till exempel sparkar en lärare, 
+// så måste vi ju ta bort lärarens koppling med skolan, och ämnet/ämnerna som lärarenundervisar i. Hur löser vi detta i våra metoder, nu får vi börja tänka oss för lite.
