@@ -10,15 +10,14 @@ const nyvangsskolan = {
     city: "Löddeköpinge",
     students: [],
     teachers: [],
-    addTeacher: function(teacher){
+   fireTeacher: function (teacher){
 
-      this.teachers.push(teacher);
-    },
+   },
 
-    addStudents: function (student){
+   relegateStudent: function (student){
 
-      this.students.push(student);
-    },
+   },
+
   };
 
 //   #2. Skapa tre stycken olika ämnen, varje ämne ska vara ett objekt med en variabel 
@@ -29,20 +28,55 @@ const engelska = {
     name: "Engelska",
     students: [],
     teachers: {},
+    addTeacher: function(teacher){
+
+      this.teachers[teacher.name] = teacher;
+    },
+
+    addStudents: function (student){
+
+      this.students.push(student);
+    },
+    removeTeacher: function (teacher){
+
+
+    }
 };
 
 const matematik = {
   name: "Matematik",
     students: [],
     teachers: {},
-};
+    addTeacher: function(teacher){
+
+      this.teachers[teacher.name] = teacher;
+    },
+
+    addStudents: function (student){
+
+      this.students.push(student);
+    },
+  }
+
 
 const svenska = {
 
   name: "Svenska",
   students: [],
   teachers: {},
+  addTeacher: function(teacher){
+
+    this.teachers[teacher.name] = teacher;
+  },
+
+  addStudents: function (student){
+
+    this.students.push(student);
+  },
   
+  removeTeacher: function (teacher){
+    
+  }
 };
 
 
@@ -56,7 +90,15 @@ const carolin = {
   subjects: [],
   enlistToSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+  quitSubject: function (subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  },
 };
 
 
@@ -67,7 +109,17 @@ const andre = {
   subjects: [],
   enlistToSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+
+  quitSubject: function (subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  },
+  
 };
 
 const alexandra = {
@@ -77,7 +129,16 @@ const alexandra = {
   subjects: [],
   enlistToSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+
+  quitSubject: function (subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  },
 };
 
 const emelie = {
@@ -87,7 +148,16 @@ const emelie = {
   subjects: [],
   enlistToSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+  quitSubject: function (subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  },
+  
 };
 
 const håkan = {
@@ -97,7 +167,16 @@ const håkan = {
   subjects: [],
   enlistToSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+  quitSubject: function (subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  },
+  
 };
 
 
@@ -109,7 +188,8 @@ const stina = {
   subjects: [],
   addSubject: function (subject){
     this.subjects.push(subject);
-  }
+  },
+
 };
 
 const katarina = {
@@ -223,16 +303,16 @@ console.log("#8. ",niklas);
 // objekt: addTeacher, enlistToSubject, addStudent, addSubject
 
 
-carolin.enlistToSubject(svenska);
-console.log("#9. ", carolin.subjects);
+carolin.enlistToSubject(engelska);
+console.log("#9. ", carolin);
 
-stina.addSubject(svenska);
+stina.addSubject(engelska);
 console.log("#9. ", stina);
 
-nyvangsskolan.addStudents(carolin);
+engelska.addStudents(carolin);
 
-nyvangsskolan.addTeacher(stina);
-console.log("#9. ", nyvangsskolan);
+engelska.addTeacher(stina);
+console.log("#9. ", engelska);
 
 
 // #10. Prova att leka runt med alla de skapade metoderna i konsolen och försöka lägga till i 
@@ -240,7 +320,27 @@ console.log("#9. ", nyvangsskolan);
 // någon likhet med ett riktigt adminprogram för en skola där en admin till exempel skriver
 //  ut en lista på alla ämnen för att se vilka respektive lärare som är ansvariga för 
 //  respektive kurs.
-// 
+
+alexandra.enlistToSubject(matematik);
+console.log("#10. ", alexandra);
+
+carolin.enlistToSubject(matematik);
+console.log("#10. ", carolin);
+
+katarina.addSubject(matematik);
+console.log("#10. ", katarina);
+
+matematik.addStudents(carolin);
+
+matematik.addTeacher(katarina);
+console.log("#10. ", engelska);
+
 // #11. Skapa fler metoder, quitSubject, removeTeacher, relegateStudent, fireTeacher. 
 // I vilka objekt hör dessa metoder hemma? Och om vi till exempel sparkar en lärare, 
 // så måste vi ju ta bort lärarens koppling med skolan, och ämnet/ämnerna som lärarenundervisar i. Hur löser vi detta i våra metoder, nu får vi börja tänka oss för lite.
+
+carolin.quitSubject(matematik);
+console.log ("#11. ", carolin);
+
+engelska.removeTeacher(katarina);
+console.log("#11. ", engelska);
