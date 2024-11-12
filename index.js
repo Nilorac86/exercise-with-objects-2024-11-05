@@ -10,7 +10,18 @@ const nyvangsskolan = {
     city: "Löddeköpinge",
     students: [],
     teachers: [],
+    addTeacher: function(teacher){
+
+      this.teachers.push(teacher);
+    },
+  
+    addStudents: function (student){
+  
+      this.students.push(student);
+    },
+    
    fireTeacher: function (teacher){
+     
 
    },
 
@@ -39,6 +50,7 @@ const engelska = {
     },
     removeTeacher: function (teacher){
 
+      delete this.teachers[teacher.name];
 
     }
 };
@@ -55,6 +67,10 @@ const matematik = {
     addStudents: function (student){
 
       this.students.push(student);
+    },
+    removeTeacher: function (teacher){
+
+      delete this.teachers[teacher.name];
     },
   }
 
@@ -75,7 +91,8 @@ const svenska = {
   },
   
   removeTeacher: function (teacher){
-    
+
+    delete this.teachers[teacher.name];
   }
 };
 
@@ -335,12 +352,23 @@ matematik.addStudents(carolin);
 matematik.addTeacher(katarina);
 console.log("#10. ", engelska);
 
+nyvangsskolan.addTeacher(stina);
+nyvangsskolan.addTeacher(katarina);
+
+nyvangsskolan.addStudents(carolin);
+nyvangsskolan.addStudents(andre);
+
+console.log("10. Skolan:", nyvangsskolan);
+
 // #11. Skapa fler metoder, quitSubject, removeTeacher, relegateStudent, fireTeacher. 
 // I vilka objekt hör dessa metoder hemma? Och om vi till exempel sparkar en lärare, 
-// så måste vi ju ta bort lärarens koppling med skolan, och ämnet/ämnerna som lärarenundervisar i. Hur löser vi detta i våra metoder, nu får vi börja tänka oss för lite.
+// så måste vi ju ta bort lärarens koppling med skolan, och ämnet/ämnerna som lärarenundervisar 
+// i. Hur löser vi detta i våra metoder, nu får vi börja tänka oss för lite.
 
 carolin.quitSubject(matematik);
 console.log ("#11. ", carolin);
 
-engelska.removeTeacher(katarina);
-console.log("#11. ", engelska);
+matematik.removeTeacher(katarina);
+console.log("#11. ", matematik);
+
+
