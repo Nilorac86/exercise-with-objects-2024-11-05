@@ -1,30 +1,231 @@
-import { english, maths, swedish } from "./subjects.js";
-import {carolin, andre, alexandra, emelie, håkan } from "./students.js";
-import {nyvangsskolan} from "./school.js";
-import {katarina, stina} from "./teachers.js";
 // #1. Börja med att skapa en skola som ett objekt. Objektet ska existera innuti en variabel 
 // som ni namnger med skolans namn för att göra det simpel. Skolan ska innehålla 
 // egenskaperna: name, address, zipcode, city, students med värdet av en tom array och 
 // teachers som en tom array. Till exempel:
 
+const nyvangsskolan = {
+  name: "Nyvångsskolan",
+  address: "Topasvägen 40",
+  zipcode: 24634,
+  city: "Löddeköpinge",
+  students: [],
+  teachers: [],
+  addTeacher: function(teacher){
 
+    this.teachers.push(teacher);
+  },
+
+  addStudents: function (student){
+
+    this.students.push(student);
+  },
+  
+ fireTeacher: function (teacher){
+    const indexOfTeacher = this.teachers.indexOf(teacher);
+  
+    if(indexOfTeacher >= 0 ){
+    
+        this.teachers.splice(indexOfTeacher,1);
+    }
+ },
+
+ relegateStudent: function (student){
+    const indexOfStudent = this.students.indexOf(student);
+  
+    if(indexOfStudent >= 0 ){
+  
+      this.students.splice(indexOfStudent,1);
+  }
+ },
+
+};
 
 //   #2. Skapa tre stycken olika ämnen, varje ämne ska vara ett objekt med en variabel 
 //   motsvarande namnet på ämnet. Egenskaperna ska vara name, students som en tom array 
 //   och teacher som ett tomt objekt. Till Exempel:
 
+const engelska = {
+  name: "Engelska",
+  students: [],
+  teachers: {},
+  addTeacher: function(teacher){
 
+    this.teachers[teacher.name] = teacher;
+  },
+
+  addStudents: function (student){
+
+    this.students.push(student);
+  },
+  removeTeacher: function (teacher){
+
+    delete this.teachers[teacher.name];
+
+  }
+};
+
+const matematik = {
+name: "Matematik",
+  students: [],
+  teachers: {},
+  addTeacher: function(teacher){
+
+    this.teachers[teacher.name] = teacher;
+  },
+
+  addStudents: function (student){
+
+    this.students.push(student);
+  },
+  removeTeacher: function (teacher){
+
+    delete this.teachers[teacher.name];
+  },
+}
+
+
+const svenska = {
+
+name: "Svenska",
+students: [],
+teachers: {},
+addTeacher: function(teacher){
+
+  this.teachers[teacher.name] = teacher;
+},
+
+addStudents: function (student){
+
+  this.students.push(student);
+},
+
+removeTeacher: function (teacher){
+
+  delete this.teachers[teacher.name];
+}
+
+};
 
 
 // #3. Skapa fem stycken studenter, där namnet på studenten motsvara variabeln. 
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
+const carolin = {
+name: "carolin",
+age: 38,
+gender: "female",
+subjects: [],
+enlistToSubject: function (subject){
+  this.subjects.push(subject);
+},
+quitSubject: function (subject){
+  const indexOfSubject = this.subjects.indexOf(subject);
 
+  if(indexOfSubject >= 0 ){
+  
+      this.subjects.splice(indexOfSubject,1);
+  }
+},
+};
+
+
+const andre = {
+name: "Andre",
+age: 41,
+gender: "Male",
+subjects: [],
+enlistToSubject: function (subject){
+  this.subjects.push(subject);
+},
+
+quitSubject: function (subject){
+  const indexOfSubject = this.subjects.indexOf(subject);
+
+  if(indexOfSubject >= 0 ){
+  
+      this.subjects.splice(indexOfSubject,1);
+  }
+},
+
+};
+
+const alexandra = {
+name: "Alexandra",
+age: 45,
+gender: "female",
+subjects: [],
+enlistToSubject: function (subject){
+  this.subjects.push(subject);
+},
+
+quitSubject: function (subject){
+  const indexOfSubject = this.subjects.indexOf(subject);
+
+  if(indexOfSubject >= 0 ){
+  
+      this.subjects.splice(indexOfSubject,1);
+  }
+},
+};
+
+const emelie = {
+name: "Emelie",
+age: 37,
+gender: "female",
+subjects: [],
+enlistToSubject: function (subject){
+  this.subjects.push(subject);
+},
+quitSubject: function (subject){
+  const indexOfSubject = this.subjects.indexOf(subject);
+
+  if(indexOfSubject >= 0 ){
+  
+      this.subjects.splice(indexOfSubject,1);
+  }
+},
+
+};
+
+const håkan = {
+name: "Håkan",
+age: 58,
+gender: "Male",
+subjects: [],
+enlistToSubject: function (subject){
+  this.subjects.push(subject);
+},
+quitSubject: function (subject){
+  const indexOfSubject = this.subjects.indexOf(subject);
+
+  if(indexOfSubject >= 0 ){
+  
+      this.subjects.splice(indexOfSubject,1);
+  }
+},
+
+};
 
 
 // #4. Skapa två stycken lärare med namnet som variabel och egenskaperna name 
 // och subjects som en tom array.
 
+const stina = {
+name: "Stina",
+subjects: [],
+addSubject: function (subject){
+  this.subjects.push(subject);
+},
+
+};
+
+const katarina = {
+name: "Katarina",
+subjects: [],
+addSubject: function (subject){
+  this.subjects.push(subject);
+}
+};
 
 
 // #5. Skriv en kodrad där du lägger till ett ämne i en lärares ämnesarray. push() 
@@ -59,28 +260,28 @@ console.log ("#6. ", svenska.students);
 
 
 
-   
-  // function addTeacherToSubject(subject, teacher) {
+ 
+// function addTeacherToSubject(subject, teacher) {
 
-  //   subject.teachers[teacher.name] = teacher;
-  
-  //   teacher.subjects.push(subject);
-  // }
-  
-  // addTeacherToSubject(engelska, beaNilklint);
-  // addTeacherToSubject(engelska, katarinaSandgren);
-  
-  
-  // console.log("#7. Engelska:", engelska.teachers); 
-  // console.log("#7. Lärare:", beaNilklint.subjects); 
+//   subject.teachers[teacher.name] = teacher;
+
+//   teacher.subjects.push(subject);
+// }
+
+// addTeacherToSubject(engelska, beaNilklint);
+// addTeacherToSubject(engelska, katarinaSandgren);
+
+
+// console.log("#7. Engelska:", engelska.teachers); 
+// console.log("#7. Lärare:", beaNilklint.subjects); 
 
 function addSubjectToTeacher (subject, teacher){
-  if (!subject.teachers[teacher.name]){
-      subject.teachers[teacher.name]= teacher;
+if (!subject.teachers[teacher.name]){
+    subject.teachers[teacher.name]= teacher;
 
 
 } if (!teacher.subjects.includes(subject)){
-    teacher.subjects.push(subject);
+  teacher.subjects.push(subject);
 }
 }
 
@@ -89,20 +290,20 @@ addSubjectToTeacher (svenska, katarina);
 console.log(katarina);
 console.log(engelska);
 
-   
+ 
 
 // #8. Varför ha en fristående funktion som lägger till ämne till en lärare? 
 // Varför inte bara lägga till en funktion (alltså en metod eftersom funktionen 
-  // då är kopplad till ett specifikt objekt) i lärarnas objekt som en egenskap? 
-  // Till exempel:
+// då är kopplad till ett specifikt objekt) i lärarnas objekt som en egenskap? 
+// Till exempel:
 
-  // Två sätt, antingen går du in i varje lärarobjekt och lägger till en egenskap:
+// Två sätt, antingen går du in i varje lärarobjekt och lägger till en egenskap:
 const niklas = {
-  name: "niklas",
-  subjects: [],
-  // //addSubject: function (subject) {
-  //   this.subjects.unshift(subject);
-  // },
+name: "niklas",
+subjects: [],
+// //addSubject: function (subject) {
+//   this.subjects.unshift(subject);
+// },
 };
 
 //niklas.addSubject(svenska);
@@ -113,8 +314,8 @@ const niklas = {
 
 // Andra sättet är att helt enkelt lägga till en egenskap med hjälp av punktnotation:
 niklas.addSubject = function (subject) {
-  
-  this.subjects.push(subject);
+
+this.subjects.push(subject);
 }
 
 // Då kan vi ju sen kalla på denna metod via lärarobjektet.
@@ -180,9 +381,65 @@ console.log ("#11. ", carolin);
 matematik.removeTeacher(katarina);
 console.log("#11. ", matematik);
 
-nyvangsskolan.fireTeacher(stina);
-console.log ("#11. ", nyvangsskolan);
+nyvangsskolan.fireTeacher(katarina);
 
-nyvangsskolan.relegateStudent(carolin);
-console.log("relegate: ,", nyvangsskolan);
-console.log("carolin", carolin);
+
+nyvangsskolan.relegateStudent("#11. ", andre);
+console.log("#11. ", nyvangsskolan);
+console.log("#11. ", engelska);
+
+
+// #12. Lek runt med dessa metoder i konsolen. Lägg till lite här och ta bort lite där. 
+// Rätt smidigt va?
+
+//klart!
+
+
+// #13. Ny bygger vi på det lite. För att undvika att behöva anropa massa metoder i 
+// konsolen när vi startar om programmet (vilket händer vid varje redigering av 
+  // script-filen) så kan vi längst ner i script-filen skapa (alltså den koden läses in 
+    // sist hela tiden) logik för att koppla några studenter till skolan, några ämnen till 
+    // studenterna och några lärare till ämnena och så vidare. Skapa sån logik nu.
+
+
+
+// #14. Skapa en funktion (OBS, en fristående funktion) , displayAllStudents som loopar
+//  igenom skolans alla studenter med hjälp av en for-loop. Tänk på att en vanlig for..of 
+//  loop inte fungerar här (varför är det så?). Vi måste använda en for..IN loop, och
+  // en for..in loop låter oss loopa igenom ett objekts egenskaper (även kallad nycklar, 
+  // keys) och på så sätt kunna koppa åt alla egenskaperna värde. Syntax:
+// 
+// for (keys in medieinstitutet.students) {
+  // /*logik för att printa ut studenterna*/
+// }
+// Länk, for-loops w3schools
+// 
+// Länk om for..in loops specifikt.
+
+
+const subjectToFind = {matematik: true, engelska:true, svenska: true};
+const students = [carolin, alexandra, andre, emelie, håkan];
+
+function displayAllStudents (student, subjectToFind){
+     
+    for ( let student in nyvangsskolan.students){
+        console.log ("#14. ", student);
+    }
+  }
+
+
+displayAllStudents(carolin);
+console.log("#14. ", displayAllStudents);
+
+
+
+// #15. Skapa nu fler funktioner, displayAllSubjectsOfStudent(student), 
+// displayAllStudentsEnlistedToSubject(subject), displayAllTeachers. 
+// Varje funktion bör ha något returvärde.
+// 
+// #16. Bygg ut med ett ytterligare typ av objekt, lägg till objekt som handlar om betyg. 
+// Vilka egenskaper ska dessa ha? Vilka metoder kan behövas i dessa betygsobjekt? Hur ska 
+// relationen mellan de andra objekten vara? Vilka metoder bör finnas i de andra typerna 
+// av objekt som behandlar betyg? Försöka lösa detta och inspektera och lek runt med det 
+// i konsolen.
+
