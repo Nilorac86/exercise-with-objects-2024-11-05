@@ -3,17 +3,8 @@ export const carolin = {
     age: 38,
     gender: "female",
     subjects: [],
-    enlistToSubject: function (subject){
-      this.subjects.push(subject);
-    },
-    quitSubject: function (subject){
-      const indexOfSubject = this.subjects.indexOf(subject);
-  
-      if(indexOfSubject >= 0 ){
-      
-          this.subjects.splice(indexOfSubject,1);
-      }
-    },
+    enlistToSubject: sharedEnlistToSubject,
+    quitSubject: sharedQuitSubject,
   };
   
   
@@ -22,19 +13,9 @@ export const carolin = {
     age: 41,
     gender: "Male",
     subjects: [],
-    enlistToSubject: function (subject){
-      this.subjects.push(subject);
-    },
-  
-    quitSubject: function (subject){
-      const indexOfSubject = this.subjects.indexOf(subject);
-  
-      if(indexOfSubject >= 0 ){
-      
-          this.subjects.splice(indexOfSubject,1);
-      }
-    },
-    
+    enlistToSubject: sharedEnlistToSubject,
+    quitSubject: sharedQuitSubject,
+
   };
   
   export const alexandra = {
@@ -42,18 +23,8 @@ export const carolin = {
     age: 45,
     gender: "female",
     subjects: [],
-    enlistToSubject: function (subject){
-      this.subjects.push(subject);
-    },
-  
-    quitSubject: function (subject){
-      const indexOfSubject = this.subjects.indexOf(subject);
-  
-      if(indexOfSubject >= 0 ){
-      
-          this.subjects.splice(indexOfSubject,1);
-      }
-    },
+    enlistToSubject: sharedEnlistToSubject,
+    quitSubject: sharedQuitSubject,
   };
   
   export const emelie = {
@@ -61,17 +32,8 @@ export const carolin = {
     age: 37,
     gender: "female",
     subjects: [],
-    enlistToSubject: function (subject){
-      this.subjects.push(subject);
-    },
-    quitSubject: function (subject){
-      const indexOfSubject = this.subjects.indexOf(subject);
-  
-      if(indexOfSubject >= 0 ){
-      
-          this.subjects.splice(indexOfSubject,1);
-      }
-    },
+    enlistToSubject: sharedEnlistToSubject,
+    quitSubject: sharedQuitSubject,
     
   };
   
@@ -80,16 +42,19 @@ export const carolin = {
     age: 58,
     gender: "Male",
     subjects: [],
-    enlistToSubject: function (subject){
-      this.subjects.push(subject);
-    },
-    quitSubject: function (subject){
-      const indexOfSubject = this.subjects.indexOf(subject);
-  
-      if(indexOfSubject >= 0 ){
-      
-          this.subjects.splice(indexOfSubject,1);
-      }
-    },
-    
+    enlistToSubject: sharedEnlistToSubject,
+    quitSubject: sharedQuitSubject,
   };
+
+  function sharedEnlistToSubject (subject){
+    this.subjects.push(subject);
+  }
+
+  function sharedQuitSubject(subject){
+    const indexOfSubject = this.subjects.indexOf(subject);
+
+    if(indexOfSubject >= 0 ){
+    
+        this.subjects.splice(indexOfSubject,1);
+    }
+  }
