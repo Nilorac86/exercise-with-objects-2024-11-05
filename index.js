@@ -1,100 +1,17 @@
+import { english, maths, swedish } from "./subjects.js";
+import {carolin, andre, alexandra, emelie, håkan } from "./students.js";
 // #1. Börja med att skapa en skola som ett objekt. Objektet ska existera innuti en variabel 
 // som ni namnger med skolans namn för att göra det simpel. Skolan ska innehålla 
 // egenskaperna: name, address, zipcode, city, students med värdet av en tom array och 
 // teachers som en tom array. Till exempel:
 
-const nyvangsskolan = {
-    name: "Nyvångsskolan",
-    address: "Topasvägen 40",
-    zipcode: 24634,
-    city: "Löddeköpinge",
-    students: [],
-    teachers: [],
-    addTeacher: function(teacher){
 
-      this.teachers.push(teacher);
-    },
-  
-    addStudents: function (student){
-  
-      this.students.push(student);
-    },
-    
-   fireTeacher: function (teacher){
-     
-
-   },
-
-   relegateStudent: function (student){
-
-   },
-
-  };
 
 //   #2. Skapa tre stycken olika ämnen, varje ämne ska vara ett objekt med en variabel 
 //   motsvarande namnet på ämnet. Egenskaperna ska vara name, students som en tom array 
 //   och teacher som ett tomt objekt. Till Exempel:
 
-const engelska = {
-    name: "Engelska",
-    students: [],
-    teachers: {},
-    addTeacher: function(teacher){
 
-      this.teachers[teacher.name] = teacher;
-    },
-
-    addStudents: function (student){
-
-      this.students.push(student);
-    },
-    removeTeacher: function (teacher){
-
-      delete this.teachers[teacher.name];
-
-    }
-};
-
-const matematik = {
-  name: "Matematik",
-    students: [],
-    teachers: {},
-    addTeacher: function(teacher){
-
-      this.teachers[teacher.name] = teacher;
-    },
-
-    addStudents: function (student){
-
-      this.students.push(student);
-    },
-    removeTeacher: function (teacher){
-
-      delete this.teachers[teacher.name];
-    },
-  }
-
-
-const svenska = {
-
-  name: "Svenska",
-  students: [],
-  teachers: {},
-  addTeacher: function(teacher){
-
-    this.teachers[teacher.name] = teacher;
-  },
-
-  addStudents: function (student){
-
-    this.students.push(student);
-  },
-  
-  removeTeacher: function (teacher){
-
-    delete this.teachers[teacher.name];
-  }
-};
 
 
 // #3. Skapa fem stycken studenter, där namnet på studenten motsvara variabeln. 
@@ -371,4 +288,9 @@ console.log ("#11. ", carolin);
 matematik.removeTeacher(katarina);
 console.log("#11. ", matematik);
 
+nyvangsskolan.fireTeacher(stina);
+console.log ("#11. ", nyvangsskolan);
 
+nyvangsskolan.relegateStudent(carolin);
+console.log("relegate: ,", nyvangsskolan);
+console.log("carolin", carolin);
