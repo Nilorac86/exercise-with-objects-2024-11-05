@@ -48,6 +48,7 @@ export const carolin = {
 
   function sharedEnlistToSubject (subject){
     this.subjects.push(subject);
+    subject.students.push(this);
   }
 
   function sharedQuitSubject(subject){

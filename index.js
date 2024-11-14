@@ -1,5 +1,7 @@
 import { english, maths, swedish } from "./subjects.js";
 import {carolin, andre, alexandra, emelie, håkan } from "./students.js";
+import {nyvangsskolan} from "./school.js";
+import {katarina, stina} from "./teachers.js";
 // #1. Börja med att skapa en skola som ett objekt. Objektet ska existera innuti en variabel 
 // som ni namnger med skolans namn för att göra det simpel. Skolan ska innehålla 
 // egenskaperna: name, address, zipcode, city, students med värdet av en tom array och 
@@ -17,122 +19,12 @@ import {carolin, andre, alexandra, emelie, håkan } from "./students.js";
 // #3. Skapa fem stycken studenter, där namnet på studenten motsvara variabeln. 
 // Egenskaperna ska vara name, age, gender och subjects som en tom array.
 
-const carolin = {
-  name: "carolin",
-  age: 38,
-  gender: "female",
-  subjects: [],
-  enlistToSubject: function (subject){
-    this.subjects.push(subject);
-  },
-  quitSubject: function (subject){
-    const indexOfSubject = this.subjects.indexOf(subject);
 
-    if(indexOfSubject >= 0 ){
-    
-        this.subjects.splice(indexOfSubject,1);
-    }
-  },
-};
-
-
-const andre = {
-  name: "Andre",
-  age: 41,
-  gender: "Male",
-  subjects: [],
-  enlistToSubject: function (subject){
-    this.subjects.push(subject);
-  },
-
-  quitSubject: function (subject){
-    const indexOfSubject = this.subjects.indexOf(subject);
-
-    if(indexOfSubject >= 0 ){
-    
-        this.subjects.splice(indexOfSubject,1);
-    }
-  },
-  
-};
-
-const alexandra = {
-  name: "Alexandra",
-  age: 45,
-  gender: "female",
-  subjects: [],
-  enlistToSubject: function (subject){
-    this.subjects.push(subject);
-  },
-
-  quitSubject: function (subject){
-    const indexOfSubject = this.subjects.indexOf(subject);
-
-    if(indexOfSubject >= 0 ){
-    
-        this.subjects.splice(indexOfSubject,1);
-    }
-  },
-};
-
-const emelie = {
-  name: "Emelie",
-  age: 37,
-  gender: "female",
-  subjects: [],
-  enlistToSubject: function (subject){
-    this.subjects.push(subject);
-  },
-  quitSubject: function (subject){
-    const indexOfSubject = this.subjects.indexOf(subject);
-
-    if(indexOfSubject >= 0 ){
-    
-        this.subjects.splice(indexOfSubject,1);
-    }
-  },
-  
-};
-
-const håkan = {
-  name: "Håkan",
-  age: 58,
-  gender: "Male",
-  subjects: [],
-  enlistToSubject: function (subject){
-    this.subjects.push(subject);
-  },
-  quitSubject: function (subject){
-    const indexOfSubject = this.subjects.indexOf(subject);
-
-    if(indexOfSubject >= 0 ){
-    
-        this.subjects.splice(indexOfSubject,1);
-    }
-  },
-  
-};
 
 
 // #4. Skapa två stycken lärare med namnet som variabel och egenskaperna name 
 // och subjects som en tom array.
 
-const stina = {
-  name: "Stina",
-  subjects: [],
-  addSubject: function (subject){
-    this.subjects.push(subject);
-  },
-
-};
-
-const katarina = {
-  name: "Katarina",
-  subjects: [],
-  addSubject: function (subject){
-    this.subjects.push(subject);
-  }
-};
 
 
 // #5. Skriv en kodrad där du lägger till ett ämne i en lärares ämnesarray. push() 

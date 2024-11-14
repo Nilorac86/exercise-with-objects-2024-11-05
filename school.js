@@ -1,3 +1,4 @@
+import { matematik, svenska, engelska } from "./subjects";
 export const nyvangsskolan = {
     name: "Nyvångsskolan",
     address: "Topasvägen 40",
