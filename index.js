@@ -522,14 +522,14 @@ function displayAllStudentsEnlistedToSubject (subject){
 
 
 const grades = {
-  add: function (subject, student, grade) {
+  addGrades: function (subject, student, grade) {
     if (!student.grades) {
       student.grades = [];  // Om studentens grades inte är definierad, skapa den
     }
     student.grades.push({ subject: subject, grade: grade });
   },
 
-  remove: function (subject, student, grade) {
+  removeGrades: function (subject, student, grade) {
     const gradeExists = student.grades.some(
       (g) => g.subject === subject && g.grade === grade
     );
@@ -545,11 +545,11 @@ const grades = {
     }
   },
 
-  show: function (student) {
+  showGrades: function (student) {
     return student.grades;  // Returnera alla betyg för studenten
   },
 };
 
-grades.add (engelska, carolin, "A");
+grades.addGrades (engelska, carolin, "A");
 
-console.log("#16. ", carolin);
+console.log("#16. " , carolin);
