@@ -136,6 +136,7 @@ name: "carolin",
 age: 38,
 gender: "female",
 subjects: [],
+grade : [],
 enlistToSubject: function (subject){
   this.subjects.push(subject);
 },
@@ -155,6 +156,7 @@ name: "Andre",
 age: 41,
 gender: "Male",
 subjects: [],
+grade : [],
 enlistToSubject: function (subject){
   this.subjects.push(subject);
 },
@@ -175,6 +177,7 @@ name: "Alexandra",
 age: 45,
 gender: "female",
 subjects: [],
+grade : [],
 enlistToSubject: function (subject){
   this.subjects.push(subject);
 },
@@ -194,6 +197,7 @@ name: "Emelie",
 age: 37,
 gender: "female",
 subjects: [],
+grade : [],
 enlistToSubject: function (subject){
   this.subjects.push(subject);
 },
@@ -213,6 +217,7 @@ name: "Håkan",
 age: 58,
 gender: "Male",
 subjects: [],
+grade : [],
 enlistToSubject: function (subject){
   this.subjects.push(subject);
 },
@@ -515,6 +520,36 @@ function displayAllStudentsEnlistedToSubject (subject){
 // i konsolen.
 
 
-const grade {
-  
-}
+
+const grades = {
+  add: function (subject, student, grade) {
+    if (!student.grades) {
+      student.grades = [];  // Om studentens grades inte är definierad, skapa den
+    }
+    student.grades.push({ subject: subject, grade: grade });
+  },
+
+  remove: function (subject, student, grade) {
+    const gradeExists = student.grades.some(
+      (g) => g.subject === subject && g.grade === grade
+    );
+
+    if (gradeExists) {
+      const index = student.grades.findIndex(
+        (g) => g.subject === subject && g.grade === grade
+      );
+
+      if (index !== -1) {
+        student.grades.splice(index, 1);
+      }
+    }
+  },
+
+  show: function (student) {
+    return student.grades;  // Returnera alla betyg för studenten
+  },
+};
+
+grades.add (engelska, carolin, "A");
+
+console.log("#16. ", carolin);
