@@ -20,14 +20,35 @@ const nyvangsskolan = {
     this.students.push(student);
   },
   
- fireTeacher: function (teacher){
-    const indexOfTeacher = this.teachers.indexOf(teacher);
+//  fireTeacher: function (teacher){
+//     const indexOfTeacher = this.teachers.indexOf(teacher);
   
-    if(indexOfTeacher >= 0 ){
+//     if(indexOfTeacher >= 0 ){
     
-        this.teachers.splice(indexOfTeacher,1);
+//         this.teachers.splice(indexOfTeacher,-1);
+//     }
+//  },
+
+
+
+fireTeacher: function (teacher) {
+
+  const subjects = {
+    svenska ,
+    matematik,
+    engelska,
+  };
+
+  // Check if the teacher exists in nyvangsskolan.teachers array
+  if (nyvangsskolan.teachers.includes(teacher)) {
+    // Remove the teacher from the main teachers list (assuming it's an array of teacher names or objects)
+    const teacherIndex = nyvangsskolan.teachers.indexOf(teacher);
+    if (teacherIndex >= 0) {
+      nyvangsskolan.teachers.splice(teacherIndex, 1);  // Remove teacher from nyvangsskolan.teachers
     }
- },
+  }
+},
+
 
  relegateStudent: function (student){
     const indexOfStudent = this.students.indexOf(student);
@@ -385,8 +406,9 @@ nyvangsskolan.fireTeacher(katarina);
 
 
 nyvangsskolan.relegateStudent("#11. ", andre);
-console.log("#11. ", nyvangsskolan);
-console.log("#11. ", engelska);
+console.log("#11. skolan: ", nyvangsskolan);
+console.log("#11. eng: ", engelska);
+
 
 
 // #12. Lek runt med dessa metoder i konsolen. Lägg till lite här och ta bort lite där. 
@@ -409,33 +431,82 @@ console.log("#11. ", engelska);
   // en for..in loop låter oss loopa igenom ett objekts egenskaper (även kallad nycklar, 
   // keys) och på så sätt kunna koppa åt alla egenskaperna värde. Syntax:
 // 
-// for (keys in medieinstitutet.students) {
-  // /*logik för att printa ut studenterna*/
+
+function displayAllStudents(nyvangsskolan) {
+
+  for (let index in nyvangsskolan.students) {
+    const student = nyvangsskolan.students[index];  
+    const subjects = student.subjects.join(", ");  
+    
+  
+    console.log(`#14. ${student.name} läser följande ämnen: ${subjects}`);
+  }
+}
+
+displayAllStudents( nyvangsskolan);
+
 // }
 // Länk, for-loops w3schools
 // 
 // Länk om for..in loops specifikt.
 
 
-const subjectToFind = {matematik: true, engelska:true, svenska: true};
-const students = [carolin, alexandra, andre, emelie, håkan];
-
-function displayAllStudents (student, subjectToFind){
-     
-    for ( let student in nyvangsskolan.students){
-        console.log ("#14. ", student);
-    }
-  }
 
 
-displayAllStudents(carolin);
-console.log("#14. ", displayAllStudents);
 
 
 
 // #15. Skapa nu fler funktioner, displayAllSubjectsOfStudent(student), 
 // displayAllStudentsEnlistedToSubject(subject), displayAllTeachers. 
 // Varje funktion bör ha något returvärde.
+
+function displayAllSubjectsOfStudent(student) {
+  
+  for (let index in student.subjects) {
+    
+    const subjects = student.subjects.join(", ");  
+    
+
+  
+    console.log(`#15. ${student.name} läser följande ämnen: ${subjects}`);
+  }
+}
+
+displayAllSubjectsOfStudent(carolin);
+
+
+function displayAllStudentsEnlistedToSubject (subject){
+
+  
+ 
+    for (let index in subject.students) {
+
+      const student = subject.students[index];
+      const studentName = student.name;  
+      
+    
+      console.log(`#15. I ${subject}: läser ${student.name}`);
+    }
+  }
+  
+  displayAllStudentsEnlistedToSubject(matematik);
+  
+  
+  function displayAllTeachers (nyvangsskolan){
+
+    for (let index in nyvangsskolan.teachers) {
+      const teacher = nyvangsskolan.teachers[index];  
+      //const subjects = student.subjects.join(", ");  
+      
+    
+      console.log(`#15.  Lärarna på skolan: ${teacher.name} `)
+    }
+  }
+  
+  displayAllTeachers( nyvangsskolan);
+  
+
+
 // 
 // #16. Bygg ut med ett ytterligare typ av objekt, lägg till objekt som handlar om betyg. 
 // Vilka egenskaper ska dessa ha? Vilka metoder kan behövas i dessa betygsobjekt? Hur ska 
@@ -443,3 +514,7 @@ console.log("#14. ", displayAllStudents);
 // av objekt som behandlar betyg? Försöka lösa detta och inspektera och lek runt med det 
 // i konsolen.
 
+
+const grade {
+  
+}
